@@ -1,27 +1,3 @@
-/*
-
-  Author: DroneMesh
-  Original Code Source Author: Rui Santos
-
----------------------------------------
-
-  This code has been modified by DroneMesh to work with the IOT notify System
-
----------------------------------------
-
-  Autor of original C code
-  Rui Santos
-  Complete project details at Complete project details at https://RandomNerdTutorials.com/esp32-http-get-post-arduino/
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-
----------------------------------------  
-*/
-
 #include <WiFi.h>
 #include <HTTPClient.h>
 #include <stdio.h> 
