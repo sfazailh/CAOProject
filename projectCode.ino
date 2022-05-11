@@ -22,6 +22,7 @@ char title[] = "Motion Sensor";
 
 // Description of Notification EX: Motion Detected In Living Room
 char descEntry[] = "Someone just entered";
+char descDeparture[] = "Someone just left";
 
 // Color of Notification: red, purple, yellow, green, blue, pink, orange
 // If no color specified it will default to red
