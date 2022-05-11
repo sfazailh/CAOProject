@@ -7,14 +7,13 @@
 const char* ssid = "YOUR WIFI ROUTER NAME";
 const char* password = "YOUR WIFI PASSWORD";
 
-// Board Manager 
-//  https://dl.espressif.com/dl/package_esp32_index.json
 
 char token[] = "5f1ed5ee6bfca8893b21f5073f3169bbd6dc089b";
 
 // PIR 
-// Connect PID to Pin D22
-const int PIN_TO_SENSOR = 22;   // the pin that OUTPUT pin of sensor is connected to
+// Connect PID to Pin D21 and D22
+const int PIN_TO_SENSOR1 = 22;   // the pin that OUTPUT pin of sensor is connected to
+const int PIN_TO_SENSOR2 = 21;   // the pin that OUTPUT pin of sensor is connected to
 
 
 // ------  Static Request -------
@@ -22,7 +21,7 @@ const int PIN_TO_SENSOR = 22;   // the pin that OUTPUT pin of sensor is connecte
 char title[] = "Motion Sensor";
 
 // Description of Notification EX: Motion Detected In Living Room
-char desc[] = "Motion Detected In Living Room";
+char descEntry[] = "Motion Detected In Living Room";
 
 // Color of Notification: red, purple, yellow, green, blue, pink, orange
 // If no color specified it will default to red
