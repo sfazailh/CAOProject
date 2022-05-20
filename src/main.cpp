@@ -1,6 +1,12 @@
 #include <Arduino.h>
 
-const int ledPin = 26;
+#define blinkTime 3
+
+const int enterGreenLED = 26;
+const int leaveRedLED = 33;
+const int entrySensor = 27;
+const int ledPin = 25;
+
 void setup() {
   // setup pin 5 as a digital output pin
   pinMode (ledPin, OUTPUT);
