@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#define blinkTime 3
+#define blinkTime 2
 
 const int enterGreenLED = 26; //setting output signal to Green LED for entry at pin 26
 const int leaveRedLED = 33; //setting output signal to Red LED for leave at pin 33
