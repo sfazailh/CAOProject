@@ -2,10 +2,10 @@
 
 #define blinkTime 2
 
-const int enterGreenLED = 12 //setting output signal to Green LED for entry at pin 12
-const int leaveWhiteLED = 33; //setting output signal to White LED for leave at pin 27
-const int entrySensor = 27; //setting input signal from entry PIR Motion Sensor at pin 27
-const int leaveSensor = 25; //setting input signal from leave PIR Motion Sensorat pin 25
+const int enterGreenLED = 12; //setting output signal to Green LED for entry at pin 12
+const int leaveWhiteLED = 27; //setting output signal to White LED for leave at pin 27
+const int entrySensor = 13; //setting input signal from entry PIR Motion Sensor at pin 13
+const int leaveSensor = 14; //setting input signal from leave PIR Motion Sensorat pin 14
 
 int enterStatus = 0; //initializing status for entry
 int leaveStatus = 0; //initializing status for departure
@@ -58,10 +58,10 @@ void setup() {
 
 void loop() {
   // Current time
-  now = millis();
+  currentTime = millis();
   
   // Turn off the LED after the number of seconds defined in the blinkTime variable
-  if(startentryTimer && (now - lastentryTrigger > (blinkTime*1000))) { //if entry has occurred and time since trigger is greater than 2 sec
+  if(startentryTimer && (currentTime - lastEnterTriggerTime > (blinkTime*1000))) { //if entry has occurred and time since trigger is greater than 2 sec
     if (enterStatus)
       Serial.println(count); //print people count if entry has occurred
     Serial.println("Person has entered successfully. Entry motion has stopped now");
@@ -71,7 +71,7 @@ void loop() {
   }
   
   // Turn off the LED after the number of seconds defined in the blinkTime variable
-  if(startleaveTimer && (now - lastleaveTrigger > (blinkTime*1000))) { //if departure has occurred and time since trigger is greater than 2 sec
+  if(startleaveTimer && (currentTime - lastLeaveTriggerTime > (blinkTime*1000))) { //if departure has occurred and time since trigger is greater than 2 sec
     if (leaveStatus)
       Serial.println(count); //print people count if departure has occurred
     Serial.println("Person has left successfully. Leave motion has stopped now");
