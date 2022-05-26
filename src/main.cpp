@@ -57,8 +57,26 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite (ledPin, HIGH);	// turn on the LED
-  delay(500);	// wait for half a second or 500 milliseconds
-  digitalWrite (ledPin, LOW);	// turn off the LED
-  delay(500);	// wait for half a second or 500 milliseconds
+  // Current time
+  now = millis();
+  
+  // Turn off the LED after the number of seconds defined in the blinkTime variable
+  if(startentryTimer && (now - lastentryTrigger > (blinkTime*1000))) { //if entry has occurred and time since trigger is greater than 2 sec
+    if (enterStatus)
+      Serial.println(count); //print people count if entry has occurred
+    Serial.println("Person has entered successfully. Entry motion has stopped now");
+    digitalWrite(enterGreenLED, LOW); //write low signal to enterGreenLED pin
+    startentryTimer = false; //set startentryTimer check to false
+    enterStatus = 0; //set enterStatus to 0 
+  }
+  
+  // Turn off the LED after the number of seconds defined in the blinkTime variable
+  if(startleaveTimer && (now - lastleaveTrigger > (blinkTime*1000))) { //if departure has occurred and time since trigger is greater than 2 sec
+    if (leaveStatus)
+      Serial.println(count); //print people count if departure has occurred
+    Serial.println("Person has left successfully. Leave motion has stopped now");
+    digitalWrite(leaveRedLED, LOW); //write low signal to leaveRedLED pin
+    startleaveTimer = false; //set startleaveTimer check to false
+    leaveStatus = 0; //set leaveStatus to 0 
+  }
 }
