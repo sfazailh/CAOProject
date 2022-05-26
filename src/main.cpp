@@ -46,14 +46,14 @@ void setup() {
   
   //LED mode OUTPUT
   pinMode(enterGreenLED, OUTPUT);
-  pinMode(leaveRedLED, OUTPUT);
+  pinMode(leaveWhiteLED, OUTPUT);
   
   // Set motionSensor pin as interrupt, assign interrupt function and set RISING mode i.e., from low to high generates an interrupt
   attachInterrupt(digitalPinToInterrupt(entrySensor), detectsentry, RISING);
   attachInterrupt(digitalPinToInterrupt(leaveSensor), detectsleave, RISING);
   
   digitalWrite(enterGreenLED, LOW); //write low signal to enterGreenLED pin
-  digitalWrite(leaveRedLED, LOW); //write low signal to leaveRedLED pin
+  digitalWrite(leaveWhiteLED, LOW); //write low signal to leaveWhiteLED pin
 }
 
 void loop() {
@@ -75,7 +75,7 @@ void loop() {
     if (leaveStatus)
       Serial.println(count); //print people count if departure has occurred
     Serial.println("Person has left successfully. Leave motion has stopped now");
-    digitalWrite(leaveRedLED, LOW); //write low signal to leaveRedLED pin
+    digitalWrite(leaveWhiteLED, LOW); //write low signal to leaveWhiteLED pin
     startleaveTimer = false; //set startleaveTimer check to false
     leaveStatus = 0; //set leaveStatus to 0 
   }
