@@ -36,11 +36,26 @@ void IRAM_ATTR detectsleave() {
   count = count-1; //decrement count
 }
 
-
 void setup() {
-  // setup pin 5 as a digital output pin
-  pinMode (ledPin, OUTPUT);
+  // Serial port for debugging purposes
+  Serial.begin(115200);
+  
+  // Motion Sensors mode INPUT_PULLUP
+  pinMode(entrySensor, INPUT_PULLUP);
+  pinMode(leaveSensor, INPUT_PULLUP);
+  
+  //LED mode OUTPUT
+  pinMode(enterGreenLED, OUTPUT);
+  pinMode(leaveRedLED, OUTPUT);
+  
+  // Set motionSensor pin as interrupt, assign interrupt function and set RISING mode i.e., from low to high generates an interrupt
+  attachInterrupt(digitalPinToInterrupt(entrySensor), detectsentry, RISING);
+  attachInterrupt(digitalPinToInterrupt(leaveSensor), detectsleave, RISING);
+  
+  digitalWrite(enterGreenLED, LOW); //write low signal to enterGreenLED pin
+  digitalWrite(leaveRedLED, LOW); //write low signal to leaveRedLED pin
 }
+
 void loop() {
   digitalWrite (ledPin, HIGH);	// turn on the LED
   delay(500);	// wait for half a second or 500 milliseconds
