@@ -2,8 +2,8 @@
 
 #define blinkTime 2
 
-const int enterGreenLED = 26; //setting output signal to Green LED for entry at pin 26
-const int leaveRedLED = 33; //setting output signal to Red LED for leave at pin 33
+const int enterGreenLED = 12 //setting output signal to Green LED for entry at pin 12
+const int leaveWhiteLED = 33; //setting output signal to White LED for leave at pin 27
 const int entrySensor = 27; //setting input signal from entry PIR Motion Sensor at pin 27
 const int leaveSensor = 25; //setting input signal from leave PIR Motion Sensorat pin 25
 
